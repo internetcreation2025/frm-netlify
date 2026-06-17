@@ -1,0 +1,15 @@
+
+.cta
+{
+    @apply whitespace-nowrap lg:inline-flex lg:items-center justify-center px-4 py-2 border border-transparent rounded-md text-20px font-bold italic;
+}
+
+.cta.skewed
+{
+	transform: skew(-15deg);
+}
+
+.purple
+{
+    @apply text-white bg-frmpurple;
+}

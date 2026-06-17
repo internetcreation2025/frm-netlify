@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+
+    /* nav */
+
+    nav a
+    {
+        @apply text-frmpink;
+    }
+
+    nav a.nuxt-link-active:not(:first-child),
+    nav a.nuxt-link-exact-active,
+    nav a:hover
+    {
+        @apply text-white lg:text-frmpurple underline;
+    }
+ 
+    .mobilenav{
+        @apply bg-frmpurple p-8 ;
+    }
+
+    .mobilenav a{
+        @apply text-white;
+    }
+    .mobilenav a:hover{
+        @apply text-frmpink;
+    }
+
+    .mobilenav .menu 
+    {
+        @apply text-4xl mt-12 gap-6;
+    }
+
+    .close-menu 
+    {
+        @apply text-5xl;
+    }
+
+    /* cta */
+
+    .cta
+    {
+        @apply lg:whitespace-nowrap text-center block mx-auto lg:inline-flex lg:items-center lg:justify-center px-4 py-4 w-full lg:w-min border border-transparent rounded-md lg:text-20px font-bold ;
+    }
+
+    .cta.skewed
+    {
+        transform: skew(-15deg);
+    }
+
+    .cta.purple
+    {
+        @apply text-white bg-frmpurple hover:bg-purple-900;
+    }
+
+    .cta.large
+    {
+        @apply p-5 text-20px rounded-md;
+    }
+
+    .cta.red
+    {
+        @apply text-white bg-frmpink hover:bg-frmpink_alt
+    }
+
+    /*about*/
+
+    .about-box
+    {
+        @apply z-50 mt-0 lg:w-392px bg-white lg:rounded-xl p-7 grid grid-flow-row gap-5  relative;
+    }
+
+    .about-box p
+    {
+        @apply text-lg
+    }
+
+    /* frm-terms */
+
+    .frm-terms a{
+        @apply text-frmpink underline italic;
+    }
+
+    .frm-terms a:hover{
+        @apply text-white;
+    }
+
+    h2{
+        @apply flex items-center leading-normal  text-2xl lg:text-40px text-center font-bold italic text-frmpink;
+    }
+
+    h2.heading-xl
+    {
+        @apply lg:text-64px text-frmpink lg:text-white italic text-center lg:px-48;
+    }
+
+    /* footer */
+
+    footer{
+        @apply bg-frmpurple text-white;
+    }
+    .footer-headings
+    {
+        @apply bg-frmpink;
+    }
+
+    .footer-headings h2
+    {
+        @apply text-white italic;
+    }
+
+    .footer-main
+    {
+        @apply grid grid-cols-1 lg:grid-cols-12 grid-flow-col lg:grid-flow-row mx-auto z-0 relative;
+    }
+
+    .footer-strip
+    {
+        @apply bg-frmpink w-full absolute top-0 left-0 h-footer-strip z-0;
+    }
+
+    .footer-sub-links
+    {
+        @apply grid grid-flow-col gap-8 justify-start;
+    }
+    
+    .footer-sub-links a{
+        @apply underline text-white;
+    }
+
+    .footer-socials
+    {
+        @apply grid grid-flow-col gap-4 justify-start items-center;
+    }
+
+    footer h3
+    {
+        @apply text-15px font-bold;
+    }
+
+    .accordian+.footer-lite
+    {
+        @apply mt-0;
+    }
+    
+    /* forms */
+
+
+    .pristine-error,
+    .text-help
+    {
+        @apply text-frmpink;
+    }
+
+    span.asterix{
+        @apply text-frmpink;
+    }
+    .contact-form > div{
+        @apply my-20;
+    }
+
+    input[type="date"]{
+        height:46px;
+        min-width:200px;
+    }
+
+    .contact-form form{
+        @apply  px-4 sm:px-6 lg:px-8;
+    }
+    .contact-form form button{
+        @apply w-full lg:w-min px-36 mt-4;
+    }
+    .contact-form-footer
+    {
+        @apply bg-frmgrey_dark mt-12 text-frmpurple rounded-b-lg py-4 text-center px-4;
+    }
+    .contact-form-footer a{
+        @apply font-bold underline;
+    }
+    
+    .contact-form-footer a:hover{
+        @apply no-underline;
+    }
+
+    /* custom controls */
+
+.frm-dropdown
+{
+    @apply cursor-pointer relative bg-transparent w-full text-frmpurple text-16px font-bold border-2 h-full  border-frmpink rounded-lg pointer-events-none;
+}
+
+    .frm-dropdown select
+    {
+        @apply cursor-pointer pointer-events-auto opacity-0 w-full h-full py-2 bg-transparent;
+    }
+
+
+    .frm-dropdown option{
+        @apply py-4;
+    }
+
+    .frm-dropdown span
+    {
+        @apply w-full h-full flex justify-center items-center pointer-events-none absolute top-0 left-0;
+    }
+    
+    .frm-dropdown span:after
+    {
+        content: '>';
+        transform:rotate(90deg);
+        margin-left:20px;
+        @apply font-Rubik;
+
+    }
+
+    .terms a{
+        @apply font-bold italic text-frmpink underline;
+    }
+
+    form textarea{
+        @apply p-4
+    }
+
+    form input[type="radio"],
+    form input[type="checkbox"],
+    form label
+    {
+        @apply cursor-pointer;
+    }
+
+    form input[type="radio"]:checked~.checked:after
+    {
+        content:'';
+        margin:4px;
+        @apply w-5 h-5 block rounded-full bg-frmpink
+    }
+ 
+    form input[type="checkbox"]:checked~.checked:after
+    {
+        content:'';
+        margin:4px;
+        @apply w-5 h-5 block rounded-sm bg-frmpink
+    }
+ 
+
+ 
+
+    .markdown a
+    {
+        @apply text-frmpink underline;
+    }
+
+    .markdown ul
+    {
+        @apply list-disc list-inside;
+    }
+
+    .markdown h2
+    {
+        @apply text-2xl;
+    }
+
+    .markdown
+    {
+        @apply grid grid-flow-row gap-6 text-sm leading-normal lg:text-19px text-frmpurple;
+    }
+    
+    .markdown a:hover
+    {
+        @apply no-underline;
+    }
+
+    .blog{
+        @apply bg-white pb-20
+    }
+
+    #blocks.blog{
+        @apply grid grid-flow-row pt-16
+    }
+
+    #blocks.blog .blogtext
+    {
+    @apply py-4;
+    }
+
+  
+    .y-video__inner button
+  {
+        position:absolute;
+        margin:0 auto;
+        @apply w-16 h-16 lg:w-130px lg:h-130px left-0 right-0 z-50;
+        
+
+
+  }
+}
+
+#feefo-service-review-carousel-widgetId .service-carousel-container
+{
+    max-width:100% !important;
+}

@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# nuxt build output
+.nuxt/
+dist/
+
+# netlify local state
+.netlify/
+
+# secrets — env vars are set in the Netlify dashboard, never committed
+.env
+.env.*
+
+# OS junk
+.DS_Store
+**/.DS_Store
