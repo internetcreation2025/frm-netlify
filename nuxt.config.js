@@ -112,19 +112,38 @@ export default {
 	router: [
 		{trailingSlash: false}
 	],
-	generate: { 
-		/*
-		routes() {
-			return axios.get(process.env.PRODUCTION_BASE_URL + '/generate')
-			.then(result => {
-				return result.data.map(url => {
-					return url
-				})
-			})
-		}, */
-		crawler: true,
+	generate: {
+		// Crawler OFF: it was following absolute links in CMS content to the old
+		// domain and generating routes named after full URLs, causing
+		// ENAMETOOLONG build failures. Instead we generate the real pages from
+		// the CMS page index below. fallback:true keeps any un-listed route
+		// working as a client-rendered SPA page.
+		crawler: false,
 		fallback: true,
-		trailingSlash: false
+		trailingSlash: false,
+		interval: 100,
+		async routes() {
+			const base = process.env.PRODUCTION_BASE_URL
+			if (!base) return []
+			try {
+				const res = await axios.post(base + '/api/query', {
+					query: 'site.index',
+					select: { key: 'page.id' }
+				}, {
+					auth: {
+						username: process.env.KIRBY_USERNAME,
+						password: process.env.KIRBY_PASSWORD
+					},
+					headers: { 'Content-Type': 'application/json' },
+					timeout: 20000
+				})
+				const data = (res.data && res.data.result && res.data.result.data) || []
+				return data.map(p => (p.key === 'home' ? '/' : '/' + p.key))
+			} catch (e) {
+				console.error('generate.routes failed:', e.message)
+				return []
+			}
+		}
 	},
 	build: {
 		extractCSS: true,
